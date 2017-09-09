@@ -80,3 +80,28 @@ app.get('/recipes', (req, res) => {
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
 });
+
+
+
+// My Code, DELETE endpoint for /recipes
+app.delete('/recipes/:id', (req, res) => {
+  Recipes.delete(req.params.id);
+  console.log(`Deleted recipes item \`${req.params.id}\``);
+  res.status(204).end();
+});
+
+
+
+/* Thinkful's solution
+
+app.delete('/recipes/:id', (req, res) => {
+  Recipes.delete(req.params.id);
+  console.log(`Deleted recipe \`${req.params.id}\``);
+  res.status(204).end();
+});
+
+app.listen(process.env.PORT || 8080, () => {
+  console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
+});
+
+*/
